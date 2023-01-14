@@ -1,11 +1,14 @@
 export class DatabaseConnectionError extends Error {
-  public reason: string;
+  reason = 'Error connecting to database';
+  statusCode = 500;
 
   constructor() {
     super();
 
-    this.reason = 'Error connecting to database';
-
     Object.setPrototypeOf(this, DatabaseConnectionError.prototype);
+  }
+
+  serializeErrors() {
+    return [{ message: this.reason }];
   }
 }
