@@ -1,7 +1,5 @@
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import mongoose from 'mongoose';
-import request from 'supertest';
-import { app } from '../app';
 import jwt from 'jsonwebtoken';
 
 declare global {
@@ -37,7 +35,7 @@ global.signin = () => {
   // Faking a JWT because there's no signup route on this service!
   // Build a JWT payload { id, email }
   const payload = {
-    id: 'al1k33dsf',
+    id: new mongoose.Types.ObjectId().toHexString(),
     email: 'test@test.com',
   };
 
