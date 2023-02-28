@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import { OrderStatus } from '@iceydc-tickets/common';
+import { TicketDoc } from '../models/ticket';
 
 interface OrderAttrs {
   userId: string;
