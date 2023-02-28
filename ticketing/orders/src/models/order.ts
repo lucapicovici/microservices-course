@@ -2,6 +2,8 @@ import mongoose from 'mongoose';
 import { OrderStatus } from '@iceydc-tickets/common';
 import { TicketDoc } from '../models/ticket';
 
+export { OrderStatus };
+
 interface OrderAttrs {
   userId: string;
   status: OrderStatus;
