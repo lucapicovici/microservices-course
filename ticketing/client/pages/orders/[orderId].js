@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 const OrderShow = ({ order }) => {
   const [timeLeft, setTimeLeft] = useState('');
+  const intervalRef = useRef(null);
 
   useEffect(() => {
     const findTimeLeft = () => {
@@ -10,14 +11,15 @@ const OrderShow = ({ order }) => {
     };
 
     findTimeLeft();
-    const timerId = setInterval(findTimeLeft, 1000);
+    intervalRef.timerId = setInterval(findTimeLeft, 1000);
 
     return () => {
-      clearInterval(timerId);
+      clearInterval(intervalRef.timerId);
     };
   }, []);
 
   if (timeLeft < 0) {
+    clearInterval(intervalRef.timerId);
     return <div>Order expired</div>;
   }
 
