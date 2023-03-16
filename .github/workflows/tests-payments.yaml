@@ -6,12 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cd ticketing/payments/src/test &&
-          touch setEnvVars.ts &&
-          echo process.env.STRIPE_KEY='$STRIPE_KEY' >> setEnvVars.ts &&
-          echo process.env.TEST_ENV='TEST' >> setEnvVars.ts &&
-          
-          cd ticketing/payments &&
+      - run: cd ticketing/payments &&
           npm install &&
           npm run test:ci
         env:
