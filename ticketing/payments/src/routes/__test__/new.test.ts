@@ -94,6 +94,6 @@ it('returns a 201 with valid inputs', async () => {
   expect(payment).not.toBeNull();
 });
 
-it('uses env variable for test', () => {
-  expect(process.env.TEST_ENV).toEqual('TEST');
-});
+// it('uses env variable for test', () => {
+//   expect(process.env.TEST_ENV).toEqual('TEST');
+// });
