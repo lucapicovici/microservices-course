@@ -2,7 +2,7 @@ name: tests-payments
 on:
   pull_request:
     paths:
-      - 'payments/**'
+      - 'ticketing/payments/**'
 jobs:
   build:
     runs-on: ubuntu-latest
